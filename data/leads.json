@@ -1,0 +1,16 @@
+[
+  {
+    "car_registration_number": "HR51CJ4367",
+    "insurance_type": "vehicle",
+    "insurance_sub_type": "4W",
+    "source": "mobile",
+    "sub_source": ""
+  },
+    {
+    "car_registration_number": "WB06E3385",
+    "insurance_type": "vehicle",
+    "insurance_sub_type": "4W",
+    "source": "mobile",
+    "sub_source": ""
+  }
+]
