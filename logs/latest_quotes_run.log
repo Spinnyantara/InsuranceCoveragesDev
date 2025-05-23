@@ -1,0 +1,245 @@
+=== New Quotes Run ===
+✅ Fetched quotes for : 654 and HR51CJ4367
+{
+  "success": true,
+  "message": "Quotes fetched successfully.",
+  "quotes": [
+    {
+      "data": {
+        "insurerCode": "DIGIT",
+        "inspectionRequired": false,
+        "insurerAPIData": {
+          "insurerQuoteNo": "6272-771146-52412209-5141",
+          "startAndEndPolicyDates": {
+            "odStartDate": null,
+            "odExpiryDate": null,
+            "tpStartDate": "23/12/2025",
+            "tpExpiryDate": "22/12/2026"
+          }
+        },
+        "idvDetails": null,
+        "premiumDetails": {
+          "premium": 4101.68,
+          "premiumBreakup": {
+            "basicODPremium": 0,
+            "netODPremium": null,
+            "basicTPPremium": 3476,
+            "netTPPremium": 3476,
+            "breakInLoading": 0,
+            "noClaimBonus": null,
+            "ncbPercentage": null,
+            "gst": 625.68,
+            "coverages": []
+          }
+        }
+      },
+      "plan_type": "1TP",
+      "quote_id": 147127,
+      "quote_plan_id": 51585,
+      "insurer_quote_id": "6272-771146-52412209-5141",
+      "no_claim_bonus": "50",
+      "filter_string": "hasFiledClaimidvnoClaimBonusplanType",
+      "idv": "minimumIdv"
+    }
+  ]
+}
+✅ Fetched quotes for : 655 and WB06E3385
+{
+  "success": true,
+  "message": "Quotes fetched successfully.",
+  "quotes": [
+    {
+      "data": {
+        "insurerCode": "DIGIT",
+        "inspectionRequired": false,
+        "insurerAPIData": {
+          "insurerQuoteNo": "9886-673173-96749480-3014",
+          "startAndEndPolicyDates": {
+            "odStartDate": null,
+            "odExpiryDate": null,
+            "tpStartDate": "24/05/2025",
+            "tpExpiryDate": "23/05/2026"
+          }
+        },
+        "idvDetails": null,
+        "premiumDetails": {
+          "premium": 4030.88,
+          "premiumBreakup": {
+            "basicODPremium": 0,
+            "netODPremium": null,
+            "basicTPPremium": 3416,
+            "netTPPremium": 3416,
+            "breakInLoading": 0,
+            "noClaimBonus": null,
+            "ncbPercentage": null,
+            "gst": 614.88,
+            "coverages": []
+          }
+        }
+      },
+      "plan_type": "1TP",
+      "quote_id": 147130,
+      "quote_plan_id": 51602,
+      "insurer_quote_id": "9886-673173-96749480-3014",
+      "no_claim_bonus": "50",
+      "filter_string": "hasFiledClaimidvnoClaimBonusplanType",
+      "idv": "minimumIdv"
+    },
+    {
+      "data": {
+        "insurerCode": "KOTAK_MAHINDRA",
+        "inspectionRequired": false,
+        "insurerAPIData": {
+          "startAndEndPolicyDates": {
+            "odStartDate": null,
+            "odExpiryDate": null,
+            "tpStartDate": "25/05/2025",
+            "tpExpiryDate": "24/05/2026"
+          }
+        },
+        "idvDetails": null,
+        "premiumDetails": {
+          "premium": 4031,
+          "premiumBreakup": {
+            "gst": 614.88,
+            "basicODPremium": 0,
+            "basicTPPremium": 3416,
+            "noClaimBonus": 0,
+            "coverages": [],
+            "netODPremium": 0,
+            "netTPPremium": 3416,
+            "PAOwnerPremium": 0,
+            "ncbPercentage": null
+          }
+        }
+      },
+      "plan_type": "1TP",
+      "quote_id": 147130,
+      "quote_plan_id": 51603,
+      "insurer_quote_id": "",
+      "no_claim_bonus": "50",
+      "filter_string": "hasFiledClaimidvnoClaimBonusplanType",
+      "idv": "minimumIdv"
+    },
+    {
+      "data": {
+        "insurerCode": "TATA_AIG",
+        "inspectionRequired": false,
+        "insurerAPIData": {
+          "startAndEndPolicyDates": {
+            "odStartDate": null,
+            "odExpiryDate": null,
+            "tpStartDate": "24/05/2025",
+            "tpExpiryDate": "23/05/2026"
+          }
+        },
+        "idvDetails": null,
+        "premiumDetails": {
+          "premium": 4031,
+          "premiumBreakup": {
+            "basicODPremium": 0,
+            "basicTPPremium": 3416,
+            "netODPremium": 0,
+            "netTPPremium": 3416,
+            "noClaimBonus": 0,
+            "ncbPercentage": null,
+            "gst": 615,
+            "breakInLoading": 0,
+            "coverages": []
+          }
+        }
+      },
+      "plan_type": "1TP",
+      "quote_id": 147130,
+      "quote_plan_id": 51605,
+      "insurer_quote_id": "",
+      "no_claim_bonus": "50",
+      "filter_string": "hasFiledClaimidvnoClaimBonusplanType",
+      "idv": "minimumIdv"
+    },
+    {
+      "data": {
+        "insurerCode": "TATA_AIG",
+        "inspectionRequired": true,
+        "insurerAPIData": {
+          "startAndEndPolicyDates": {
+            "odStartDate": "23/05/2025",
+            "odExpiryDate": "22/05/2026",
+            "tpStartDate": "23/05/2025",
+            "tpExpiryDate": "22/05/2026"
+          }
+        },
+        "idvDetails": {
+          "maximum": 276127,
+          "minimum": 198812,
+          "default": 237470,
+          "selected": 198812
+        },
+        "premiumDetails": {
+          "premium": 5480,
+          "premiumBreakup": {
+            "basicODPremium": 1227.81,
+            "basicTPPremium": 3416,
+            "netODPremium": 1227.81,
+            "netTPPremium": 3416,
+            "noClaimBonus": 0,
+            "ncbPercentage": 0,
+            "gst": 836,
+            "breakInLoading": 0,
+            "coverages": []
+          }
+        }
+      },
+      "plan_type": "1OD+1TP",
+      "quote_id": 147131,
+      "quote_plan_id": 51598,
+      "insurer_quote_id": "",
+      "no_claim_bonus": "50",
+      "filter_string": "hasFiledClaimidvnoClaimBonusplanType",
+      "idv": "minimumIdv"
+    },
+    {
+      "data": {
+        "insurerCode": "KOTAK_MAHINDRA",
+        "inspectionRequired": true,
+        "insurerAPIData": {
+          "startAndEndPolicyDates": {
+            "odStartDate": "24/05/2025",
+            "odExpiryDate": "23/05/2026",
+            "tpStartDate": "24/05/2025",
+            "tpExpiryDate": "23/05/2026"
+          }
+        },
+        "idvDetails": {
+          "default": 97265,
+          "minimum": 87539,
+          "maximum": 111855,
+          "selected": 87539
+        },
+        "premiumDetails": {
+          "premium": 7676,
+          "premiumBreakup": {
+            "gst": 1170.96,
+            "basicODPremium": 3089.34,
+            "basicTPPremium": 3416,
+            "noClaimBonus": 0,
+            "coverages": [],
+            "netODPremium": 3089.34,
+            "netTPPremium": 3416,
+            "PAOwnerPremium": 0,
+            "ncbPercentage": 0
+          }
+        }
+      },
+      "plan_type": "1OD+1TP",
+      "quote_id": 147131,
+      "quote_plan_id": 51597,
+      "insurer_quote_id": "",
+      "no_claim_bonus": "50",
+      "filter_string": "hasFiledClaimidvnoClaimBonusplanType",
+      "idv": "minimumIdv"
+    }
+  ]
+}
+
+🔚 Finished fetching quotes.
