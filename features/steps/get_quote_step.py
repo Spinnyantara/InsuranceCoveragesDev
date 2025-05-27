@@ -1,8 +1,10 @@
 from behave import given, when, then
 import json
 from src.utils.request_builder import RequestBuilder
-
+import smtplib
+from email.message import EmailMessage
 import os
+import logging
 
 # Fixed log file path
 LOG_FILE_PATH = "logs/latest_quotes_run.log"
@@ -267,22 +269,72 @@ def step_impl(context):
 
 @then("each quote response should contain valid insurer data")
 def step_impl(context):
+    all_passed = True
+    failed_quotes_summary = []
+    success_quotes_summary = []
+
     for i, quote_response in enumerate(context.quotes_responses):
-        assert quote_response["success"] is True, f"❌ Quotes fetch failed for response {i + 1}"
-        assert "quotes" in quote_response and len(
-            quote_response["quotes"]) > 0, f"❌ No quotes found in response {i + 1}"
+        try:
+            assert quote_response["success"] is True, f"❌ Quotes fetch failed for response {i + 1}"
+            assert "quotes" in quote_response and len(
+                quote_response["quotes"]) > 0, f"❌ No quotes found in response {i + 1}"
 
-        for quote in quote_response["quotes"]:
-            insurer_code = quote["data"]["insurerCode"]
-            quote_plan_id = quote["quote_plan_id"]
-            quote_id = quote["quote_id"]
-            plan_type = quote["plan_type"]
-            ncb = quote.get("no_claim_bonus")
+            quote_lines = []
+            for quote in quote_response["quotes"]:
+                insurer_code = quote["data"]["insurerCode"]
+                quote_plan_id = quote["quote_plan_id"]
+                quote_id = quote["quote_id"]
+                plan_type = quote["plan_type"]
+                ncb = quote.get("no_claim_bonus")
 
-            print(
-                f"✅ Quote {i + 1}: InsurerCode= {insurer_code} "
-                f"PlanType= {plan_type} "
-                f"QuoteId= {quote_id} "
-                f"QuotePlanId= {quote_plan_id} "
-                f"NCB= {ncb} "
-            )
+                line = (
+                    f"✅ Quote {i + 1}: InsurerCode= {insurer_code} "
+                    f"PlanType= {plan_type} "
+                    f"QuoteId= {quote_id} "
+                    f"QuotePlanId= {quote_plan_id} "
+                    f"NCB= {ncb}"
+                )
+                print(line)
+                quote_lines.append(line)
+
+        except AssertionError as e:
+            all_passed = False
+            message = f"❌ Error in quote response {i + 1}: {str(e)}\nResponse Data: {quote_response}"
+            print(message)
+            logging.error(message)
+            failed_quotes_summary.append(f"Response {i + 1}: {str(e)}")
+
+    if all_passed:
+        # Send success email
+        summary = "\n\n".join(success_quotes_summary)
+        subject = "✅ All Quote Validations Passed"
+        body = f"All quote responses passed validation.\n\n{summary}"
+        send_success_email(subject, body, ["qa-team@example.com"])
+    else:
+        print("\n🔴 Summary of Failed Quote Validations:")
+        for item in failed_quotes_summary:
+            print(f"- {item}")
+        logging.error("Summary of Failures:\n" + "\n".join(failed_quotes_summary))
+        assert False
+
+
+def send_success_email(subject, body, to_emails):
+    msg = EmailMessage()
+    msg["Subject"] = "Quote Fetch Automation Log Report"
+    msg["From"] = "antara.patil@spinny.com"
+    msg["To"] = "daanish.kaul@spinny.com"
+    msg.set_content("Please find the attached quote fetch log report.")
+
+    # Attach the log file
+    with open(LOG_FILE_PATH, "rb") as f:
+        msg.add_attachment(f.read(), filename="latest_quotes_run.log", maintype="text", subtype="plain")
+
+    # Send the email (example uses Gmail)
+    try:
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
+            smtp.login("antara.patil@spinny.com", "cgkxofhcmltuviww")
+            smtp.send_message(msg)
+            print("📧 Email has been sent successfully to recipient@example.com ✅")
+    except Exception as e:
+        print("❌ Failed to send email:", str(e))
+
